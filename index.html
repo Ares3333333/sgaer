@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SHAR Production | Премиальный AI & CGI Видеопродакшн</title>
-    <meta name="description" content="Бутиковый видеопродакшн. Создаем рекламные ролики, кино и контент для брендов с использованием AI, 3D и CGI технологий со скоростью нейросетей.">
-    <meta name="keywords" content="ai видео, cgi графика, 3d анимация, видеопродакшн москва, создание рекламных роликов, нейросети видео, b2b реклама">
-    
-    <meta property="og:title" content="SHAR Production | AI Видеопродакшн">
-    <meta property="og:description" content="Бутиковый продакшн. Создаем рекламу будущего с помощью нейросетей и CGI.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200">
+    <meta name="description" content="Бутиковый видеопродакшн. Создаем рекламные ролики, кино и контент для брендов с использованием AI, 3D и CGI технологий.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ========== ПРЕМИАЛЬНЫЕ ПЕРЕМЕННЫЕ ========== */
+        /* ========== ПЕРЕМЕННЫЕ ========== */
         :root { 
             --brand-red: #DC143C; 
             --bg: #030303; 
@@ -25,186 +20,174 @@
             --line: rgba(255, 255, 255, 0.1);
             --aura-base: rgba(220, 20, 60, 0.35);
             --glow: rgba(220, 20, 60, 0.7);
-            --aura-strong: rgba(220, 20, 60, 0.9);
-            --pulse-glass: rgba(220, 20, 60, 0.05);
             --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* ========== БАЗА ========== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); font-weight: 300; -webkit-font-smoothing: antialiased; overflow-x: hidden; -webkit-tap-highlight-color: transparent !important; cursor: none; }
-        a { color: #ffffff !important; text-decoration: none !important; outline: none !important; cursor: none; }
-
-        /* ========== КАСТОМНЫЙ КУРСОР ========== */
-        .custom-cursor { width: 12px; height: 12px; border-radius: 50%; background: var(--brand-red); position: fixed; pointer-events: none; z-index: 100000; transform: translate(-50%, -50%); transition: width 0.3s var(--ease-luxe), height 0.3s var(--ease-luxe); box-shadow: 0 0 20px var(--glow), 0 0 40px var(--aura-base); opacity: 0; will-change: transform, width, height; }
-        .custom-cursor.active { opacity: 1; }
-        .custom-cursor.hover { width: 40px; height: 40px; background: rgba(220, 20, 60, 0.1); border: 1px solid var(--brand-red); }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); font-weight: 300; overflow-x: hidden; -webkit-tap-highlight-color: transparent !important; }
+        a { color: #fff !important; text-decoration: none !important; transition: 0.3s; }
 
         /* ========== АНИМАЦИИ ========== */
-        .fade-in-section, .stagger-item { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-luxe), transform 0.8s var(--ease-luxe); will-change: opacity, transform; }
+        .fade-in-section, .stagger-item { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease-luxe), transform 0.8s var(--ease-luxe); }
         .fade-in-section.is-visible, .stagger-item.is-visible { opacity: 1; transform: translateY(0); }
-        @keyframes premium-pulse { 0% { box-shadow: 0 0 8px var(--aura-base); border-color: rgba(220, 20, 60, 0.3); } 50% { box-shadow: 0 0 25px var(--glow), 0 0 50px var(--aura-base); border-color: rgba(220, 20, 60, 0.7); } 100% { box-shadow: 0 0 8px var(--aura-base); border-color: rgba(220, 20, 60, 0.3); } }
-        @keyframes text-aura-hover { from { text-shadow: 0 0 10px var(--aura-base); } to { text-shadow: 0 0 18px var(--aura-strong), 0 0 35px var(--brand-red); color: #fff; } }
+        
         @keyframes shimmer { to { background-position: 200% center; } }
+        @keyframes pulse-glow { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
 
-        /* ========== НАВИГАЦИЯ ========== */
-        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 30px 4%; display: flex; justify-content: space-between; align-items: center; z-index: 90000; background: linear-gradient(to bottom, rgba(3,3,3,0.95) 0%, transparent 100%); backdrop-filter: blur(10px); }
-        .logo { font-size: 14px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; background: linear-gradient(90deg, #fff 0%, #fff 25%, var(--brand-red) 45%, var(--brand-red) 55%, #fff 75%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 7s linear infinite; }
+        /* ========== НАВИГАЦИЯ & БУРГЕР МЕНЮ ========== */
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 25px 4%; display: flex; justify-content: space-between; align-items: center; z-index: 9000; background: linear-gradient(to bottom, rgba(3,3,3,0.95) 0%, transparent 100%); backdrop-filter: blur(10px); }
+        .logo { font-size: clamp(12px, 1.5vw, 14px); font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; background: linear-gradient(90deg, #fff 0%, #fff 25%, var(--brand-red) 45%, var(--brand-red) 55%, #fff 75%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 7s linear infinite; z-index: 9002;}
+        
         .nav-right { display: flex; align-items: center; gap: 35px; }
-        .nav-link { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; text-shadow: 0 0 10px var(--aura-base) !important; transition: 0.4s; }
-        .nav-link:hover, .nav-link:active { animation: text-aura-hover 0.5s forwards !important; }
-        .phone-link { padding: 10px 18px; border-radius: 2px; border: 1px solid rgba(220, 20, 60, 0.3); font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; animation: premium-pulse 3s infinite ease-in-out !important; transition: 0.4s; }
-        .phone-link:hover, .phone-link:active { background: var(--pulse-glass) !important; border-color: var(--brand-red) !important; box-shadow: 0 0 25px var(--aura-strong) !important; }
+        .nav-link { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; text-shadow: 0 0 10px var(--aura-base); }
+        .nav-link:hover { text-shadow: 0 0 20px var(--brand-red); }
+        .phone-link { padding: 10px 18px; border-radius: 2px; border: 1px solid rgba(220, 20, 60, 0.4); font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; }
+        
+        /* Гамбургер */
+        .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 9002; }
+        .hamburger span { width: 30px; height: 2px; background: #fff; transition: 0.3s; }
 
-        /* ========== HERO ========== */
-        .hero { position: relative; height: 100vh; display: flex; align-items: flex-end; padding: 0 4% 100px 4%; overflow: hidden; }
-        .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; background: #000; }
+        /* ========== ГЛАВНЫЙ ЭКРАН ========== */
+        .hero { position: relative; height: 100vh; display: flex; align-items: flex-end; padding: 0 4% 80px 4%; overflow: hidden; }
+        .video-bg { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: #000; }
         .video-bg iframe { width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         .overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(3,3,3,0.95) 0%, transparent 50%), linear-gradient(90deg, rgba(3,3,3,0.7) 0%, transparent 60%); z-index: 2; }
-        .hero-content { position: relative; z-index: 10; max-width: 900px; will-change: transform; }
-        .hero-content h1 { font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 600; letter-spacing: -0.03em; line-height: 0.9; margin-bottom: 30px; color: #fff; }
-        .hero-content h1 span { background: linear-gradient(90deg, #fff 0%, #fff 25%, var(--brand-red) 45%, var(--brand-red) 55%, #fff 75%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 9s linear infinite; }
-        .hero-content p { font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 500px; font-weight: 300; }
+        .hero-content { position: relative; z-index: 10; max-width: 900px; }
+        .hero-content h1 { font-size: clamp(2.5rem, 6vw, 6rem); font-weight: 600; letter-spacing: -0.03em; line-height: 0.9; margin-bottom: 20px; color: #fff; }
+        .hero-content h1 span { color: var(--brand-red); text-shadow: 0 0 20px var(--aura-base); }
+        .hero-content p { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 500px; }
 
-        /* ========== СЕКЦИИ & МАТЕРИАЛЫ ========== */
-        .section { padding: 140px 4%; border-top: 1px solid var(--line); position: relative; }
-        .label { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 60px; display: flex; align-items: center; gap: 20px; font-weight: 600; text-shadow: 0 0 10px var(--aura-base); }
+        /* ========== СЕКЦИИ ========== */
+        .section { padding: 120px 4%; border-top: 1px solid var(--line); position: relative; }
+        .label { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 50px; display: flex; align-items: center; gap: 20px; font-weight: 600; }
         .label::after { content: ''; height: 1px; flex-grow: 1; background: linear-gradient(to right, var(--line), transparent); }
 
-        .manifesto { padding: 120px 4%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 10%; align-items: center; }
-        .manifesto-title { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600; text-shadow: 0 0 12px var(--aura-base); }
-        .manifesto-text { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.15; letter-spacing: -0.02em; font-weight: 500; color: #fff; }
-        .manifesto-text span { color: var(--brand-red); font-weight: 600; text-shadow: 0 0 20px var(--aura-base); }
-        .manifesto-sub { margin-top: 35px; font-size: clamp(1rem, 1.6vw, 1.1rem); color: var(--grey); line-height: 1.8; max-width: 650px; font-weight: 300; }
+        .manifesto { padding: 100px 4%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 10%; align-items: center; }
+        .manifesto-title { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600; }
+        .manifesto-text { font-size: clamp(1.8rem, 4vw, 3.5rem); line-height: 1.15; font-weight: 500; color: #fff; }
+        .manifesto-text span { color: var(--brand-red); }
+        .manifesto-sub { margin-top: 30px; font-size: clamp(1rem, 1.5vw, 1.1rem); color: #ccc; line-height: 1.8; }
 
-        /* ========== ПРОЕКТЫ (СЕТКА + РАЗВОРОТ) ========== */
-        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5vw; transition: 0.5s; }
-        .case { position: relative; aspect-ratio: 16/9; background: #0a0a0a; overflow: hidden; border-radius: 2px; transition: transform 0.6s var(--ease-luxe), box-shadow 0.6s var(--ease-luxe); cursor: none; }
-        .case:hover { transform: scale(1.02); box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px var(--aura-base); z-index: 2; }
-        .case img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-luxe), filter 0.6s var(--ease-luxe); filter: grayscale(0.7) brightness(0.5); }
-        .case:hover img { transform: scale(1.08); filter: grayscale(0) brightness(1); }
-        .case-info { position: absolute; inset: 0; padding: 45px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 70%); opacity: 0; transition: 0.5s; }
+        /* ДОВЕРИЕ И ЦИФРЫ */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 80px; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 600; color: var(--brand-red); line-height: 1; margin-bottom: 10px; text-shadow: 0 0 20px var(--aura-base); }
+        .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--grey); }
+        .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+        .client-logo { aspect-ratio: 16/9; border: 1px solid var(--line); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: clamp(1rem, 2vw, 1.5rem); font-weight: 600; color: rgba(255,255,255,0.3); }
+
+        /* ========== ПРОЕКТЫ (СЕТКА) ========== */
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2vw; }
+        .case { position: relative; aspect-ratio: 16/9; background: #0a0a0a; overflow: hidden; border-radius: 2px; cursor: pointer; }
+        .case img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; filter: grayscale(0.5) brightness(0.6); }
+        .case:hover img { transform: scale(1.05); filter: grayscale(0) brightness(1); }
+        .case-info { position: absolute; inset: 0; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 60%); opacity: 0; transition: 0.4s; }
         .case:hover .case-info { opacity: 1; }
-        .case-info h3 { font-size: clamp(1.6rem, 2.2vw, 2.2rem); font-weight: 600; color: #fff; margin-bottom: 10px; }
-        .watch-case-btn { display: inline-block; margin-top: 15px; padding: 12px 25px; border: 1px solid var(--brand-red); border-radius: 2px; font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand-red) !important; background: transparent; transition: 0.3s; width: max-content;}
-        .watch-case-btn:hover { background: var(--brand-red); color: #fff !important; box-shadow: 0 0 20px var(--glow); }
-        
-        .hidden-cases { display: none; } /* Скрытые кейсы */
-        .show-more-wrap { text-align: center; margin-top: 80px; }
+        .case-info h3 { font-size: clamp(1.4rem, 2vw, 2rem); font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1;}
+        .watch-case-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; border: 1px solid var(--brand-red); font-size: 9px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--brand-red) !important; width: max-content; }
 
-        /* ========== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ (КОМАНДА & ЖУРНАЛ) ========== */
-        .horizontal-track { display: flex; gap: 40px; overflow-x: auto; padding-bottom: 40px; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; }
-        .horizontal-track::-webkit-scrollbar { display: none; } /* Прячем ползунок */
+        /* ========== ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ (Команда и Журнал) ========== */
+        .horizontal-scroll { display: flex; gap: 30px; overflow-x: auto; padding-bottom: 30px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+        .horizontal-scroll::-webkit-scrollbar { display: none; }
         
-        .team-member { min-width: 300px; flex-shrink: 0; scroll-snap-align: start; border-top: 1px solid var(--line); padding-top: 30px; transition: 0.4s; }
-        .team-member:hover { transform: translateY(-5px); }
-        .team-member::before { content: ''; display: block; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-red) 0%, rgba(220, 20, 60, 0.3) 100%); margin-bottom: 20px; box-shadow: 0 0 30px rgba(220, 20, 60, 0.3); }
-        .team-member h4 { font-size: 22px; font-weight: 500; margin-bottom: 10px; color: #fff; }
-        .team-member p { font-size: 10px; text-transform: uppercase; color: var(--brand-red); letter-spacing: 0.15em; font-weight: 600; text-shadow: 0 0 10px var(--aura-base); }
+        .team-member { min-width: 280px; flex-shrink: 0; scroll-snap-align: start; border-top: 1px solid var(--line); padding-top: 30px; }
+        .team-member::before { content: ''; display: block; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-red) 0%, rgba(220, 20, 60, 0.3) 100%); margin-bottom: 20px; }
+        .team-member h4 { font-size: 20px; font-weight: 500; margin-bottom: 10px; color: #fff; }
+        .team-member p { font-size: 10px; text-transform: uppercase; color: var(--brand-red); letter-spacing: 0.15em; font-weight: 600; }
 
-        .journal-card { min-width: 450px; flex-shrink: 0; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; transition: 0.5s; background: rgba(255,255,255,0.01); cursor: none;}
-        .journal-card:hover { border-color: var(--brand-red); box-shadow: 0 0 30px var(--aura-base); transform: translateY(-8px); }
+        .journal-card { min-width: 350px; flex-shrink: 0; scroll-snap-align: start; border: 1px solid var(--line); display: flex; flex-direction: column; }
         .j-img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
-        .j-img-wrap img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.6); transition: 1s; }
+        .j-img-wrap img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.5); transition: 0.8s; }
         .journal-card:hover .j-img-wrap img { filter: grayscale(0); transform: scale(1.05); }
-        .j-content { padding: 35px; display: flex; flex-direction: column; flex-grow: 1; }
-        .j-tag { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 15px; }
-        .j-title { font-size: 19px; font-weight: 500; line-height: 1.45; color: #fff; margin-bottom: 20px; }
+        .j-content { padding: 30px; flex-grow: 1; }
+        .j-tag { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 10px; font-weight: 600;}
+        .j-title { font-size: 18px; font-weight: 500; line-height: 1.4; color: #fff; }
 
-        /* ========== PRICING ========== */
+        /* ========== СТОИМОСТЬ ========== */
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .price-card { padding: 55px 45px; border: 1px solid var(--line); transition: 0.6s; border-radius: 2px; display: flex; flex-direction: column; background: rgba(255,255,255,0.005); }
-        .price-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
-        .price-card h3 { font-size: 10px; color: var(--brand-red); text-transform: uppercase; margin-bottom: 30px; letter-spacing: 0.2em; font-weight: 600; text-shadow: 0 0 10px var(--aura-base); }
-        .price-card .val { font-size: clamp(2rem, 2.8vw, 2.8rem); margin-bottom: 35px; font-weight: 500; color: #fff; }
-        .price-card ul { list-style: none; flex-grow: 1; }
-        .price-card li { font-size: 13px; color: #ccc; margin-bottom: 18px; line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 12px; }
-        .premium-pack { border-color: rgba(220, 20, 60, 0.4); box-shadow: 0 0 40px rgba(220, 20, 60, 0.15); transform: scale(1.02); }
+        .price-card { padding: 40px; border: 1px solid var(--line); display: flex; flex-direction: column; }
+        .price-card h3 { font-size: 10px; color: var(--brand-red); text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.2em; }
+        .price-card .val { font-size: clamp(1.8rem, 2.5vw, 2.5rem); margin-bottom: 30px; font-weight: 500; color: #fff; }
+        .price-card ul { list-style: none; flex-grow: 1; margin-bottom: 30px; }
+        .price-card li { font-size: 13px; color: #ccc; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+        .premium-pack { border-color: rgba(220, 20, 60, 0.4); box-shadow: 0 0 30px rgba(220, 20, 60, 0.1); }
+        .btn-minimal { display: inline-block; padding: 18px 0; width: 100%; text-align: center; border: 1px solid rgba(220, 20, 60, 0.4); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: #fff !important; }
 
-        /* ========== BUTTONS ========== */
-        .btn-minimal, .order-btn { display: inline-block; padding: 22px 45px; border-radius: 2px; background: transparent !important; text-align: center; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; border: 1px solid rgba(220, 20, 60, 0.4); animation: premium-pulse 3s infinite ease-in-out !important; transition: 0.4s !important; color: #ffffff !important; cursor: none;}
-        .btn-minimal:hover, .order-btn:hover { background: var(--pulse-glass) !important; border-color: var(--brand-red) !important; box-shadow: 0 0 35px var(--aura-strong) !important; text-shadow: 0 0 5px #fff !important; transform: translateY(-2px); }
-        .order-btn { margin-top: 25px; padding: 18px; width: 100%; }
+        /* ========== КОНТАКТЫ ========== */
+        .order-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; }
+        .order-info h2 { font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 500; line-height: 1; margin-bottom: 40px; }
+        .order-info h2 span { color: var(--brand-red); }
+        .c-item { margin-bottom: 25px; }
+        .c-item p { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 8px; }
+        .c-link { font-size: clamp(1.1rem, 2vw, 1.3rem); color: #fff !important; }
+        .form-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--line); color: #fff; padding: 20px 0; font-size: 16px; margin-bottom: 30px; outline: none; }
+        .form-input:focus { border-bottom-color: var(--brand-red); }
 
-        /* ========== CONTACT FORM ========== */
-        .order-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 10%; align-items: start; }
-        .order-info h2 { font-size: clamp(2.8rem, 4.5vw, 4.5rem); font-weight: 500; line-height: 1; margin-bottom: 50px; color: #fff; }
-        .order-info h2 span { color: var(--brand-red); text-shadow: 0 0 25px var(--aura-base); }
-        .c-item { margin-bottom: 30px; }
-        .c-item p { font-size: 10px; text-transform: uppercase; color: var(--brand-red); letter-spacing: 0.2em; margin-bottom: 12px; font-weight: 600; text-shadow: 0 0 8px var(--aura-base); }
-        .c-link { font-size: clamp(1.15rem, 2.2vw, 1.35rem); font-weight: 300; display: block; transition: 0.4s !important; color: #fff !important; }
-        .c-link:hover { animation: text-aura-hover 0.5s forwards !important; transform: translateX(5px); }
-        .form-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--line); color: #fff; padding: 28px 0; font-size: 16px; margin-bottom: 45px; outline: none; transition: 0.4s; }
-        .form-input:focus { border-bottom-color: var(--brand-red); box-shadow: 0 15px 15px -15px var(--aura-base); }
-        .btn-submit { background: transparent !important; color: #ffffff !important; padding: 24px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; width: 100%; border: 1px solid rgba(220, 20, 60, 0.4); border-radius: 2px; animation: premium-pulse 3s infinite ease-in-out !important; transition: 0.4s !important; cursor: none;}
-        .btn-submit:hover { background: var(--pulse-glass) !important; border-color: var(--brand-red) !important; box-shadow: 0 0 40px var(--aura-strong) !important; }
-
-        /* ========================================= */
-        /* РАСШИРЕННЫЕ МОДАЛКИ (ВНУТРЕННИЕ СТРАНИЦЫ) */
-        /* ========================================= */
-        .modal { position: fixed; inset: 0; background: rgba(3,3,3,0.98); z-index: 100000; display: none; padding: 100px 4% 80px 4%; overflow-y: auto; backdrop-filter: blur(20px); }
-        .modal.active { display: block; animation: modalFadeIn 0.4s ease-out; }
+        /* ============================================================== */
+        /* РАСШИРЕННЫЕ МОДАЛЬНЫЕ ОКНА КЕЙСОВ (ПОЛНЫЙ ФАРШ)                */
+        /* ============================================================== */
+        .modal { position: fixed; inset: 0; background: #030303; z-index: 99999; display: none; padding: 80px 4%; overflow-y: auto; }
+        .modal.active { display: block; animation: modalFadeIn 0.3s ease; }
         @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+        
+        .close-case { position: fixed; top: 30px; right: 4%; font-size: 24px; color: #fff; cursor: pointer; z-index: 100000; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 5px; border: 1px solid var(--line); }
+        
+        .m-hero { max-width: 1200px; margin: 0 auto 30px; }
+        .m-hero-tag { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 10px; }
+        .m-hero-title { font-size: clamp(2rem, 4vw, 4rem); font-weight: 500; color: #fff; line-height: 1.1; }
 
-        .close-case { position: fixed; top: 40px; right: 4%; font-size: 11px; letter-spacing: 0.2em; font-weight: 600; z-index: 100001; padding: 15px 25px; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; background: rgba(0,0,0,0.8); color: #fff !important; transition: 0.3s; cursor: none; }
-        .close-case:hover { border-color: var(--brand-red); box-shadow: 0 0 20px var(--brand-red); background: var(--brand-red); }
-
-        .m-hero { margin-bottom: 40px; max-width: 1200px; margin: 0 auto 40px auto;}
-        .m-hero-tag { font-size: 10px; color: var(--brand-red); text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600; display: block; margin-bottom: 15px; }
-        .m-hero-title { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 500; color: #fff; line-height: 1; margin-bottom: 30px;}
-
-        /* КРАСНОЕ СВЕЧЕНИЕ ВОКРУГ ВИДЕО В КЕЙСЕ */
-        .m-video-container { width: 100%; height: 75vh; background: #000; margin: 0 auto 80px auto; max-width: 1400px; border-radius: 2px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 60px rgba(220, 20, 60, 0.5); }
+        /* КРАСНОЕ СВЕЧЕНИЕ ВИДЕО */
+        .m-video-container { width: 100%; height: 70vh; background: #000; margin: 0 auto 60px; max-width: 1200px; border-radius: 4px; box-shadow: 0 0 60px rgba(220, 20, 60, 0.3); overflow: hidden; }
         .m-video-container iframe { width: 100%; height: 100%; border: none; }
 
-        .m-case-body { display: grid; grid-template-columns: 1fr 2.5fr; gap: 80px; max-width: 1200px; margin: 0 auto; }
-        .m-stat { margin-bottom: 30px; }
-        .m-stat h4 { font-size: 10px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 8px; }
-        .m-stat p { font-size: 16px; color: #fff; }
+        .m-case-body { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; max-width: 1200px; margin: 0 auto 60px; }
+        .m-stat h4 { font-size: 10px; color: var(--grey); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 5px; }
+        .m-stat p { font-size: 16px; color: #fff; margin-bottom: 20px;}
 
-        .m-content-text h2 { font-size: 24px; color: var(--brand-red); margin-bottom: 20px; font-weight: 500; }
-        .m-content-text p { font-size: 18px; line-height: 1.8; color: #ccc; margin-bottom: 50px; font-weight: 300; }
+        .m-content-text h2 { font-size: 22px; color: var(--brand-red); margin-bottom: 15px; font-weight: 500; }
+        .m-content-text p { font-size: 16px; line-height: 1.8; color: #ccc; margin-bottom: 30px; font-weight: 300; }
 
-        .project-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 60px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); max-width: 1200px; margin: 60px auto; }
-        .metric-item { text-align: center; }
-        .metric-value { font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 600; color: var(--brand-red); margin-bottom: 10px; text-shadow: 0 0 20px var(--aura-base); }
-        .metric-label { font-size: 11px; text-transform: uppercase; color: var(--grey); letter-spacing: 0.15em; }
+        .project-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); max-width: 1200px; margin: 0 auto 60px; }
+        .metric-value { font-size: clamp(2rem, 3vw, 3rem); font-weight: 600; color: var(--brand-red); text-shadow: 0 0 15px var(--aura-base); }
+        .metric-label { font-size: 10px; text-transform: uppercase; color: var(--grey); letter-spacing: 0.1em; }
 
-        .m-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 2vw; max-width: 1200px; margin: 0 auto 80px auto; }
-        .m-gallery img { width: 100%; border-radius: 2px; }
-        .gallery-full { grid-column: 1 / -1; }
-
-        .m-cta-wrap { text-align: center; padding: 60px 0; max-width: 1200px; margin: 0 auto; }
-        .m-cta-wrap h2 { font-size: 32px; font-weight: 400; margin-bottom: 40px; color: #fff; }
-
-        /* Адаптив */
+        /* ========== АДАПТИВ (ЧТОБЫ НА ТЕЛЕФОНЕ БЫЛО ИДЕАЛЬНО) ========== */
         @media (max-width: 900px) { 
-            nav { padding: 20px 6%; } .nav-link { display: none; }
-            .hero { padding: 0 6% 80px 6%; }
-            .manifesto, .section { padding: 80px 6%; }
-            .grid, .pricing-grid, .order-wrap, .m-case-body, .m-gallery { grid-template-columns: 1fr; gap: 40px; }
-            .m-video-container { height: 40vh; margin-bottom: 40px; }
-            .close-case { top: 20px; right: 4%; }
-            .modal { padding: 80px 4% 60px 4%; }
+            .nav-right { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: #030303; flex-direction: column; justify-content: center; gap: 40px; transition: 0.4s ease; z-index: 9001; }
+            .nav-right.active { right: 0; }
+            .nav-link { font-size: 16px; }
+            .hamburger { display: flex; }
+            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+            
+            .manifesto { grid-template-columns: 1fr; gap: 30px; }
+            .grid, .pricing-grid, .order-wrap, .m-case-body { grid-template-columns: 1fr; gap: 40px; }
+            .clients-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .case-info { opacity: 1; padding: 20px; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%); }
+            .m-video-container { height: 35vh; box-shadow: 0 0 30px rgba(220, 20, 60, 0.4); }
+            .project-metrics { grid-template-columns: 1fr; text-align: center; gap: 30px; }
             .journal-card { min-width: 85vw; }
-            body { cursor: auto; } .custom-cursor { display: none; }
+            .modal { padding: 60px 4% 40px; }
         }
     </style>
 </head>
 <body>
 
-<div class="custom-cursor"></div>
-
 <nav>
-    <a href="#" class="logo smart-close"><span>SHAR</span> PRODUCTION</a>
-    <div class="nav-right">
-        <a href="#work" class="nav-link smart-close">Проекты</a>
-        <a href="#team" class="nav-link smart-close">Команда</a>
-        <a href="#pricing" class="nav-link smart-close">Стоимость</a>
-        <a href="#journal" class="nav-link smart-close">Журнал</a>
-        <a href="#order" class="nav-link smart-close">Связаться</a>
-        <a href="tel:+79319815484" class="phone-link smart-close">+7 931 981-54-84</a>
+    <a href="#" class="logo"><span>SHAR</span> PRODUCTION</a>
+    <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+    <div class="nav-right" id="nav-links">
+        <a href="#work" class="nav-link nav-closer">Проекты</a>
+        <a href="#team" class="nav-link nav-closer">Команда</a>
+        <a href="#pricing" class="nav-link nav-closer">Стоимость</a>
+        <a href="#order" class="nav-link nav-closer">Связаться</a>
+        <a href="tel:+79319815484" class="phone-link nav-closer">+7 931 981-54-84</a>
     </div>
 </nav>
 
@@ -215,9 +198,8 @@
     <div class="overlay"></div>
     <div class="hero-content">
         <h1><span>SHAR</span> PRODUCTION</h1>
-        <p>Кинематографический AI-продакшн. Мы создаем визуальные миры будущего, объединяя магию кино и скорость нейросетей.</p>
+        <p>Кинематографический AI-продакшн. Мы создаем визуальные миры будущего со скоростью нейросетей.</p>
     </div>
-    <div class="scroll-indicator"><span>Scroll</span></div>
 </section>
 
 <section class="manifesto fade-in-section">
@@ -225,38 +207,50 @@
     <div>
         <h2 class="manifesto-text">Мы решаем <span>сверхсложные задачи</span> на стыке классического кино и технологий.</h2>
         <div class="manifesto-sub">
-            <p>SHAR Production — это команда кинематографистов с авторским подходом. Мы создаем премиальный контент через синтез <span>AI / CGI / 3D</span> и классического видеопроизводства.</p>
+            <p>SHAR Production — это команда кинематографистов с авторским подходом. Мы создаем премиальный контент через синтез AI / CGI / 3D и классического видеопроизводства.</p>
         </div>
+    </div>
+</section>
+
+<section class="social-proof fade-in-section">
+    <h2 class="label">ДОВЕРИЕ В ЦИФРАХ</h2>
+    <div class="stats-grid">
+        <div class="stat-item stagger-item"><div class="stat-number" data-count="50">0</div><div class="stat-label">Проектов</div></div>
+        <div class="stat-item stagger-item"><div class="stat-number" data-count="15">0</div><div class="stat-label">Стран</div></div>
+        <div class="stat-item stagger-item"><div class="stat-number" data-count="99">0</div><div class="stat-label">% Возврата</div></div>
     </div>
 </section>
 
 <section id="work" class="section fade-in-section">
     <h2 class="label">ИЗБРАННЫЕ КЕЙСЫ</h2>
-    <div class="grid" id="portfolio-grid">
-        <div class="case stagger-item" onclick="openCase(1)"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920" alt="Pinskiy" loading="lazy"><div class="case-info"><h3>PINSKIY & CO</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-        <div class="case stagger-item" onclick="openCase(2)"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920" alt="Click" loading="lazy"><div class="case-info"><h3>CLICK CITY</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-        <div class="case stagger-item" onclick="openCase(3)"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1920" alt="Grob" loading="lazy"><div class="case-info"><h3>ИЛЮХИН ГРОБ</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-        <div class="case stagger-item" onclick="openCase(4)"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920" alt="Techno" loading="lazy"><div class="case-info"><h3>M-TECHNO</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-        <div class="case stagger-item" onclick="openCase(5)"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1920" alt="Case 5" loading="lazy"><div class="case-info"><h3>AI REVOLUTION</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-        <div class="case stagger-item" onclick="openCase(6)"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920" alt="Case 6" loading="lazy"><div class="case-info"><h3>CYBERPUNK ERA</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-        
-        <div class="case hidden-cases" onclick="openCase(7)"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1920" alt="Case 7" loading="lazy"><div class="case-info"><h3>VIRTUAL SHOWROOM</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-        <div class="case hidden-cases" onclick="openCase(8)"><img src="https://images.unsplash.com/photo-1535016120720-40c7467d4aac?q=80&w=1920" alt="Case 8" loading="lazy"><div class="case-info"><h3>METAVERSE</h3><span class="watch-case-btn">СМОТРЕТЬ КЕЙС</span></div></div>
-    </div>
-    <div class="show-more-wrap">
-        <button id="show-more-btn" class="btn-minimal">РАЗВЕРНУТЬ ПОРТФОЛИО ↓</button>
+    <div class="grid">
+        <div class="case stagger-item" onclick="openCase(1)">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920" alt="Pinskiy" loading="lazy">
+            <div class="case-info"><h3>PINSKIY & CO</h3><p style="font-size: 10px; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase;">AI-Production / Food</p></div>
+        </div>
+        <div class="case stagger-item" onclick="openCase(2)">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920" alt="Click" loading="lazy">
+            <div class="case-info"><h3>CLICK CITY</h3><p style="font-size: 10px; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase;">Sci-Fi / Fintech</p></div>
+        </div>
+        <div class="case stagger-item" onclick="openCase(3)">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1920" alt="Grob" loading="lazy">
+            <div class="case-info"><h3>ИЛЮХИН ГРОБ</h3><p style="font-size: 10px; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase;">Cinema / Short Film</p></div>
+        </div>
+        <div class="case stagger-item" onclick="openCase(4)">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1920" alt="Techno" loading="lazy">
+            <div class="case-info"><h3>M-TECHNO</h3><p style="font-size: 10px; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase;">B2B Commercial / Macro</p></div>
+        </div>
     </div>
 </section>
 
 <section id="team" class="section fade-in-section">
     <h2 class="label">КОМАНДА</h2>
-    <div class="horizontal-track">
+    <div class="horizontal-scroll">
         <div class="team-member"><h4>Арсений Александров</h4><p>Продюсер</p></div>
         <div class="team-member"><h4>Саша Шер</h4><p>Head of Production / Режиссер</p></div>
         <div class="team-member"><h4>Александра Черняева</h4><p>Продюсер</p></div>
         <div class="team-member"><h4>Федор Невров</h4><p>Оператор-постановщик</p></div>
         <div class="team-member"><h4>Владислава Хвесюк</h4><p>Project Manager</p></div>
-        <div class="team-member"><h4>SHAR AI Agent</h4><p>AI Архитектор</p></div>
     </div>
 </section>
 
@@ -266,36 +260,36 @@
         <div class="price-card stagger-item">
             <h3>01 / Интеграция</h3><div class="val">от 150 000 ₽</div>
             <ul><li>AI-элементы в видео</li><li>Срок: до 5 дней</li></ul>
-            <a href="#order" class="order-btn">Заказать проект</a>
+            <a href="#order" class="btn-minimal">Заказать</a>
         </div>
         <div class="price-card premium-pack stagger-item">
             <h3>02 / Full Production</h3><div class="val">от 350 000 ₽</div>
             <ul><li>Рекламный ролик «под ключ»</li><li>Срок: до 10 дней</li></ul>
-            <a href="#order" class="order-btn">Заказать проект</a>
+            <a href="#order" class="btn-minimal">Заказать</a>
         </div>
         <div class="price-card stagger-item">
             <h3>03 / Enterprise</h3><div class="val">Индивидуально</div>
-            <ul><li>Виртуальные амбассадоры</li><li>Индивидуальный пайплайн</li></ul>
-            <a href="#order" class="order-btn">Обсудить проект</a>
+            <ul><li>Виртуальные амбассадоры</li><li>Сложный пайплайн</li></ul>
+            <a href="#order" class="btn-minimal">Обсудить</a>
         </div>
     </div>
 </section>
 
 <section id="journal" class="section fade-in-section">
-    <h2 class="label">ЖУРНАЛ / ТЕХНОЛОГИИ (SEO СТРАНИЦЫ)</h2>
-    <div class="horizontal-track">
-        <a href="#" class="journal-card">
-            <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" alt="AI" loading="lazy"></div>
+    <h2 class="label">ЖУРНАЛ / ТЕХНОЛОГИИ</h2>
+    <div class="horizontal-scroll">
+        <div class="journal-card">
+            <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800" alt="AI B2B" loading="lazy"></div>
             <div class="j-content"><span class="j-tag">Аналитика</span><h3 class="j-title">AI-генерация в B2B: Как снизить бюджет на CGI до 40%</h3></div>
-        </a>
-        <a href="#" class="journal-card">
+        </div>
+        <div class="journal-card">
             <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1535016120720-40c7467d4aac?q=80&w=800" alt="Evo" loading="lazy"></div>
             <div class="j-content"><span class="j-tag">Мнение</span><h3 class="j-title">Эволюция продакшна: От съемок к 3D мирам</h3></div>
-        </a>
-        <a href="#" class="journal-card">
+        </div>
+        <div class="journal-card">
             <div class="j-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800" alt="Click" loading="lazy"></div>
             <div class="j-content"><span class="j-tag">Кейс</span><h3 class="j-title">Как мы создали аниме-киберпанк за 14 дней</h3></div>
-        </a>
+        </div>
     </div>
 </section>
 
@@ -308,16 +302,20 @@
                 <div class="c-item"><p>TELEGRAM</p><a href="https://t.me/actorars" target="_blank" class="c-link">@actorars</a></div>
             </div>
         </div>
-        <form id="contactForm">
+        <form>
             <input type="email" class="form-input" placeholder="ВАШ EMAIL" required>
-            <textarea class="form-input" placeholder="КРАТКО О ЗАДАЧЕ" required style="min-height: 120px;"></textarea>
-            <button type="submit" class="btn-submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+            <textarea class="form-input" placeholder="КРАТКО О ЗАДАЧЕ" required style="min-height: 100px;"></textarea>
+            <button type="submit" class="btn-minimal" style="background: transparent;">ОТПРАВИТЬ ЗАЯВКУ</button>
         </form>
     </div>
 </section>
 
+<footer style="padding: 50px 4%; text-align: center; font-size: 10px; color: var(--grey); letter-spacing: 0.2em; text-transform: uppercase; border-top: 1px solid var(--line);">
+    © 2026 SHAR PRODUCTION
+</footer>
+
 <div class="modal" id="case-1">
-    <div class="close-case" onclick="closeCase(1)">ЗАКРЫТЬ ✕</div>
+    <div class="close-case" onclick="closeCase(1)">✕</div>
     <header class="m-hero">
         <span class="m-hero-tag">AI-Production / Food</span>
         <h1 class="m-hero-title">AI Видеопродакшн для Pinskiy & Co</h1>
@@ -335,7 +333,9 @@
             <h2>Бизнес-задача</h2>
             <p>Создать серию имиджевых рекламных роликов, транслирующих гастрономическую эстетику. Главный вызов — добиться гиперреалистичной AI-генерации, полностью исключив съемочный процесс и логистические затраты на фуд-стилистов.</p>
             <h2>Технологическое решение</h2>
-            <p>Команда SHAR разработала кастомный AI-пайплайн, имитирующий эффект дорогой stop-motion анимации. Были воссозданы знаковые локации Москвы и детализированные блюда с сохранением 100% читаемости айдентики бренда.</p>
+            <p>Команда SHAR разработала кастомный AI-пайплайн, имитирующий эффект дорогой stop-motion анимации. Были воссозданы знаковые локации Москвы и детализированные блюда с сохранением 100% читаемости брендинга.</p>
+            <h2>Итоговый результат</h2>
+            <p>Премиальная кампания реализована всего за 3 рабочих дня, обеспечив охваты, сопоставимые с ТВ-продакшном.</p>
         </div>
     </div>
     <div class="project-metrics">
@@ -343,20 +343,13 @@
         <div class="metric-item"><div class="metric-value">100%</div><div class="metric-label">Читаемость бренда</div></div>
         <div class="metric-item"><div class="metric-value">40%</div><div class="metric-label">Экономия бюджета</div></div>
     </div>
-    <div class="m-gallery">
-        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920" alt="Pinskiy 1" class="gallery-full" loading="lazy">
-    </div>
-    <div class="m-cta-wrap">
-        <h2>Готовы внедрить AI в ваш бизнес?</h2>
-        <a href="#order" onclick="closeCase(1)" class="btn-minimal">ОБСУДИТЬ ПРОЕКТ</a>
-    </div>
 </div>
 
 <div class="modal" id="case-2">
-    <div class="close-case" onclick="closeCase(2)">ЗАКРЫТЬ ✕</div>
+    <div class="close-case" onclick="closeCase(2)">✕</div>
     <header class="m-hero">
-        <span class="m-hero-tag">Sci-Fi / Fintech</span>
-        <h1 class="m-hero-title">Аниме вселенная для Click City</h1>
+        <span class="m-hero-tag">Sci-Fi / Fintech / Anime</span>
+        <h1 class="m-hero-title">Аниме вселенная Click City</h1>
     </header>
     <div class="m-video-container">
         <iframe data-src="https://player.vimeo.com/video/1169962544?autoplay=1" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
@@ -364,82 +357,145 @@
     <div class="m-case-body">
         <div class="m-sidebar">
             <div class="m-stat"><h4>Клиент</h4><p>Click Uzbekistan</p></div>
-            <div class="m-stat"><h4>Услуга</h4><p>CGI & AI Анимация</p></div>
+            <div class="m-stat"><h4>Услуга</h4><p>CGI Анимация</p></div>
+            <div class="m-stat"><h4>Сроки</h4><p>14 дней</p></div>
         </div>
         <div class="m-content-text">
             <h2>Бизнес-задача</h2>
-            <p>Трансформировать имидж крупнейшей платежной системы, создав визуальный язык, понятный цифровому поколению.</p>
+            <p>Трансформировать имидж крупнейшей платежной системы, создав визуальный язык, понятный цифровому поколению, и подчеркнуть масштаб экосистемы.</p>
             <h2>Технологическое решение</h2>
-            <p>Создание вселенной «Click World» в стилистике Sci-Fi аниме. С помощью AI отрисованы панорамы с национальными кодами.</p>
+            <p>Создание вселенной «Click World» в стилистике высокобюджетного Sci-Fi аниме. С помощью AI были отрисованы сложнейшие панорамы города будущего, где национальные архитектурные коды гармонично вплетены в киберпанк.</p>
+            <h2>Итоговый результат</h2>
+            <p>Проект закрепил за Click статус самого прогрессивного бренда в регионе. Видео стало виральным.</p>
         </div>
     </div>
-    <div class="m-gallery">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920" alt="Click 1" class="gallery-full" loading="lazy">
+    <div class="project-metrics">
+        <div class="metric-item"><div class="metric-value">14</div><div class="metric-label">Дней</div></div>
+        <div class="metric-item"><div class="metric-value">1M+</div><div class="metric-label">Просмотров</div></div>
+        <div class="metric-item"><div class="metric-value">95%</div><div class="metric-label">Positive Feedback</div></div>
     </div>
 </div>
 
 <div class="modal" id="case-3">
-    <div class="close-case" onclick="closeCase(3)">ЗАКРЫТЬ ✕</div>
-    <header class="m-hero"><span class="m-hero-tag">Cinema</span><h1 class="m-hero-title">Илюхин Гроб</h1></header>
-    <div class="m-video-container"><p style="color:#fff; padding:50px; text-align:center;">Вставьте ссылку на Vimeo в data-src</p></div>
+    <div class="close-case" onclick="closeCase(3)">✕</div>
+    <header class="m-hero">
+        <span class="m-hero-tag">Cinema / Short Film</span>
+        <h1 class="m-hero-title">Илюхин Гроб</h1>
+    </header>
+    <div class="m-video-container">
+        <iframe data-src="https://player.vimeo.com/video/1169951312?autoplay=1" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
+    </div>
+    <div class="m-case-body">
+        <div class="m-sidebar">
+            <div class="m-stat"><h4>Проект</h4><p>Авторское кино</p></div>
+            <div class="m-stat"><h4>Услуга</h4><p>Full Production</p></div>
+            <div class="m-stat"><h4>Хронометраж</h4><p>24 минуты</p></div>
+        </div>
+        <div class="m-content-text">
+            <h2>Творческая задача</h2>
+            <p>Создать глубокое авторское кино, раскрывающее классический режиссерский потенциал студии SHAR. Передать абсурдную и тонкую психологическую ситуацию похорон у закрытого гроба.</p>
+            <h2>Решение</h2>
+            <p>Ставка на чистый кинематограф. Глубокая проработка сценария, ювелирная работа с актерами. Визуальный ряд выстроен на драматичном освещении и выразительных крупных планах.</p>
+            <h2>Результат</h2>
+            <p>Фильм стал победителем международных кинофестивалей, подтвердив высокий уровень режиссуры SHAR Production.</p>
+        </div>
+    </div>
+    <div class="project-metrics">
+        <div class="metric-item"><div class="metric-value">5</div><div class="metric-label">Фестивалей</div></div>
+        <div class="metric-item"><div class="metric-value">2</div><div class="metric-label">Награды</div></div>
+        <div class="metric-item"><div class="metric-value">100%</div><div class="metric-label">Кинематограф</div></div>
+    </div>
 </div>
 
 <div class="modal" id="case-4">
-    <div class="close-case" onclick="closeCase(4)">ЗАКРЫТЬ ✕</div>
-    <header class="m-hero"><span class="m-hero-tag">B2B Commercial</span><h1 class="m-hero-title">M-Techno</h1></header>
-    <div class="m-video-container"><p style="color:#fff; padding:50px; text-align:center;">Вставьте ссылку на Vimeo в data-src</p></div>
+    <div class="close-case" onclick="closeCase(4)">✕</div>
+    <header class="m-hero">
+        <span class="m-hero-tag">B2B Commercial</span>
+        <h1 class="m-hero-title">M-Techno</h1>
+    </header>
+    <div class="m-video-container">
+        <iframe data-src="https://player.vimeo.com/video/1169951312?autoplay=1" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
+    </div>
+    <div class="m-case-body">
+        <div class="m-sidebar">
+            <div class="m-stat"><h4>Клиент</h4><p>Завод M-Techno</p></div>
+            <div class="m-stat"><h4>Услуга</h4><p>Рекламный ролик</p></div>
+            <div class="m-stat"><h4>Цель</h4><p>B2B Продажи</p></div>
+        </div>
+        <div class="m-content-text">
+            <h2>Бизнес-задача</h2>
+            <p>Разработать премиальный имиджевый фильм для высокотехнологичного производства. Необходимо было превратить рутинный процесс создания деталей в завораживающее визуальное зрелище.</p>
+            <h2>Технологическое решение</h2>
+            <p>Использование специализированной макрооптики и роботизированных систем движения камеры. Ритмичный монтаж синхронизирован с агрессивным саунд-дизайном.</p>
+            <h2>Итоговый результат</h2>
+            <p>Ролик успешно используется отделом продаж, моментально снимая любые возражения заказчиков о технологическом уровне.</p>
+        </div>
+    </div>
+    <div class="project-metrics">
+        <div class="metric-item"><div class="metric-value">10</div><div class="metric-label">Выставок</div></div>
+        <div class="metric-item"><div class="metric-value">50+</div><div class="metric-label">Крупных лидов</div></div>
+        <div class="metric-item"><div class="metric-value">3x</div><div class="metric-label">Увеличение ROI</div></div>
+    </div>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    
-    // КУРСОР
-    const cursor = document.querySelector('.custom-cursor');
-    if (window.innerWidth > 900 && cursor) {
-        let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2, cX = mouseX, cY = mouseY;
-        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; cursor.classList.add('active'); });
-        function anim() {
-            cX += (mouseX - cX) * 0.15; cY += (mouseY - cY) * 0.15;
-            cursor.style.transform = `translate3d(${cX}px, ${cY}px, 0) translate(-50%, -50%)`;
-            requestAnimationFrame(anim);
-        } anim();
-        document.querySelectorAll('a, button, .case, .journal-card, .price-card, .close-case').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-    }
 
-    // ПОКАЗАТЬ ВСЕ КЕЙСЫ
-    const btnMore = document.getElementById('show-more-btn');
-    if(btnMore) {
-        btnMore.addEventListener('click', function() {
-            document.querySelectorAll('.hidden-cases').forEach(el => {
-                el.style.display = 'block';
-                setTimeout(() => el.classList.add('is-visible'), 50);
-            });
-            this.style.display = 'none';
-        });
-    }
+    // Гамбургер меню для мобильных
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const closers = document.querySelectorAll('.nav-closer');
 
-    // АНИМАЦИЯ ПРИ СКРОЛЛЕ
-    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible'); }); });
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    closers.forEach(closer => {
+        closer.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+
+    // Анимация при скролле
+    const obs = new IntersectionObserver((entries) => { 
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible'); }); 
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in-section, .stagger-item').forEach(el => obs.observe(el));
 
-    // УМНЫЕ МОДАЛКИ (ВИДЕО ЗАГРУЖАЕТСЯ ТОЛЬКО ПРИ КЛИКЕ)
+    // Счетчик цифр
+    function animateCounter(el, target) {
+        let start = 0; const inc = target / 100; 
+        const timer = setInterval(() => {
+            start += inc;
+            if (start >= target) { start = target; clearInterval(timer); }
+            if (el.parentElement.classList.contains('stat-item')) el.textContent = Math.floor(start) + (target === 99 ? '%' : '+');
+        }, 16);
+    }
+    const countObs = new IntersectionObserver((entries) => { 
+        entries.forEach(e => { if(e.isIntersecting) { animateCounter(e.target, parseInt(e.target.dataset.count)); countObs.unobserve(e.target); } }); 
+    });
+    document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+    // Умные модалки: Видео грузится ТОЛЬКО при открытии кейса (защита от нагрева компа)
     window.openCase = function(id) { 
         const m = document.getElementById('case-'+id); 
         if(m) { 
-            m.classList.add('active'); document.body.style.overflow = 'hidden'; 
+            m.classList.add('active'); 
+            document.body.style.overflow = 'hidden'; 
             const iframe = m.querySelector('iframe');
             if(iframe && !iframe.src) iframe.src = iframe.getAttribute('data-src');
         } 
     }
+    
     window.closeCase = function(id) { 
         const m = document.getElementById('case-'+id); 
         if(m) { 
-            m.classList.remove('active'); document.body.style.overflow = 'auto'; 
+            m.classList.remove('active'); 
+            document.body.style.overflow = 'auto'; 
             const iframe = m.querySelector('iframe');
-            if(iframe) iframe.src = ''; // Убиваем плеер
+            if(iframe) iframe.src = ''; // Убиваем плеер, чтобы не жрал память
         } 
     }
 });
